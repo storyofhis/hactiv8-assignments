@@ -1,0 +1,11 @@
+{
+    "data": {
+        "water" : 0,
+        "wind" : 0
+    },
+    "status" : {
+        "waterStatus" : "",
+        "windStatus" : ""
+    },
+    "updatedAt": ""
+}
