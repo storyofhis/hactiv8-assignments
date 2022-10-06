@@ -13,7 +13,7 @@ type Response struct {
 func BadRequestError(err error) *Response {
 	return &Response{
 		Status:  http.StatusBadRequest,
-		Message: "BAD_REQUEST",
+		Message: "BAD_REQUEST njir",
 		Error:   err.Error(),
 		Data:    nil,
 	}
@@ -54,11 +54,11 @@ func SuccessCreateResponse(payload interface{}, message string, data any) *Respo
 		Data:    data,
 	}
 }
-func SuccessFindAllResponse(payload interface{}, message string, data any) *Response {
+func SuccessFindAllResponse(message string, data any) *Response {
 	return &Response{
 		Status:  http.StatusOK,
 		Message: message,
-		Payload: payload,
-		Data:    data,
+		// Payload: payload,
+		Data: data,
 	}
 }
