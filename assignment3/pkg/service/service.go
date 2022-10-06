@@ -9,7 +9,7 @@ import (
 
 type Service interface {
 	GetData() (entity.Response, error)
-	UpdateData(entity.Response) error
+	UpdateData() error
 }
 
 type service struct {
@@ -26,7 +26,7 @@ func (s *service) GetData() (entity.Response, error) {
 	return s.repository.GetData()
 }
 
-func (s *service) UpdateData(entity.Response) error {
+func (s *service) UpdateData() error {
 	var response entity.Response
 
 	response.Data.Water = helper.GenerateRandomNumber(1, 100)
