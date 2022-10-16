@@ -9,5 +9,5 @@ type User struct {
 	Email    string
 	Username string
 	Name     string
-	Age      string
+	Age      int
 }

@@ -1,6 +1,7 @@
 package router
 
 import (
+	"latihan-testing/controllers"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -15,5 +16,8 @@ func CreateRouter() *gin.Engine {
 			"status": "get success",
 		})
 	})
+	v1.POST("/create", controllers.CreateUser)
+	v1.GET("/get-users", controllers.FindUsers)
+	v1.GET("/get-user/:id", controllers.FindUser)
 	return router
 }
