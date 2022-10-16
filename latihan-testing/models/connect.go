@@ -10,7 +10,7 @@ import (
 	"gorm.io/gorm"
 )
 
-func ConnectDB() {
+func ConnectDB() *gorm.DB {
 	dbUser := os.Getenv("DB_USER")
 	dbPass := os.Getenv("DB_PASSWORD")
 	dbHost := os.Getenv("DB_HOST")
@@ -28,4 +28,13 @@ func ConnectDB() {
 	if err != nil {
 		log.Println("Cannot Connet Your DB")
 	}
+	return entity.DB
+}
+
+func CloseDatabaseConnection(db *gorm.DB) {
+	DB, err := db.DB()
+	if err != nil {
+		log.Println(err)
+	}
+	DB.Close()
 }

@@ -7,7 +7,8 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func CreateRouter() *gin.Engine {
+func CreateRouter(controller controllers.Controllers) *gin.Engine {
+
 	router := gin.Default()
 
 	v1 := router.Group("/v1")
@@ -16,8 +17,8 @@ func CreateRouter() *gin.Engine {
 			"status": "get success",
 		})
 	})
-	v1.POST("/create", controllers.CreateUser)
-	v1.GET("/get-users", controllers.FindUsers)
-	v1.GET("/get-user/:id", controllers.FindUser)
+	v1.POST("/create", controller.CreateUser)
+	v1.GET("/get-users", controller.FindUsers)
+	v1.GET("/get-user/:id", controller.FindUser)
 	return router
 }
